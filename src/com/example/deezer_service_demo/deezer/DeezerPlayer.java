@@ -6,14 +6,14 @@ import java.util.List;
 import android.app.Application;
 import android.util.Log;
 
-import com.deezer.sdk.DeezerConnect;
-import com.deezer.sdk.DeezerError;
-import com.deezer.sdk.OAuthException;
+import com.deezer.sdk.network.connect.DeezerConnect;
+import com.deezer.sdk.network.request.event.DeezerError;
+import com.deezer.sdk.network.request.event.OAuthException;
+import com.deezer.sdk.player.DefaultPlayerFactory;
 import com.deezer.sdk.player.Player;
-import com.deezer.sdk.player.TooManyPlayersExceptions;
 import com.deezer.sdk.player.event.OnPlayerStateChangeListener;
 import com.deezer.sdk.player.event.PlayerState;
-import com.deezer.sdk.player.impl.DefaultPlayerFactory;
+import com.deezer.sdk.player.exception.TooManyPlayersExceptions;
 import com.deezer.sdk.player.networkcheck.WifiAndMobileNetworkStateChecker;
 import com.example.deezer_service_demo.deezer.data.DeezerTrack;
 

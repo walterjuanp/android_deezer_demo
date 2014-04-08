@@ -13,14 +13,12 @@ import android.content.Intent;
 import android.os.IBinder;
 import android.util.Log;
 
-import com.deezer.sdk.DeezerConnect;
-import com.deezer.sdk.DeezerConnectImpl;
-import com.deezer.sdk.DeezerError;
-import com.deezer.sdk.DeezerRequest;
-import com.deezer.sdk.OAuthException;
-import com.deezer.sdk.RequestListener;
-import com.deezer.sdk.player.TooManyPlayersExceptions;
-import com.example.deezer_service_demo.MainActivity;
+import com.deezer.sdk.network.connect.DeezerConnect;
+import com.deezer.sdk.network.request.DeezerRequest;
+import com.deezer.sdk.network.request.event.DeezerError;
+import com.deezer.sdk.network.request.event.OAuthException;
+import com.deezer.sdk.network.request.event.RequestListener;
+import com.deezer.sdk.player.exception.TooManyPlayersExceptions;
 import com.example.deezer_service_demo.ServiceTestActivity;
 import com.example.deezer_service_demo.deezer.data.DeezerPlaylist;
 import com.example.deezer_service_demo.deezer.data.DeezerTrack;
@@ -50,7 +48,7 @@ public class DeezerPlayerService extends Service {
   @Override
   public void onCreate(){
     Log.d("DeezerPlayerService", "onCreate :: START");
-    _deezerConnect = new DeezerConnectImpl(getApplicationContext(), DEEZER_APP_ID);
+    _deezerConnect = new DeezerConnect(getApplicationContext(), DEEZER_APP_ID);
     _dplayer = null;
     _requesetHandler = new DeezerRequestHandler();
     try {
