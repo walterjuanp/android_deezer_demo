@@ -50,7 +50,7 @@ public class DeezerPlayerService extends Service {
   @Override
   public void onCreate(){
     Log.d("DeezerPlayerService", "onCreate :: START");
-    _deezerConnect = new DeezerConnectImpl( DEEZER_APP_ID );
+    _deezerConnect = new DeezerConnectImpl(getApplicationContext(), DEEZER_APP_ID);
     _dplayer = null;
     _requesetHandler = new DeezerRequestHandler();
     try {
